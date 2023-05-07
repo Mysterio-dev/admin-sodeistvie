@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Страницы</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230507101338">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<main class="page">
+			<div class="page__container">
+				<h1>Админ</h1>
+				<ul class="pages">
+					<li><a href="orders.html" target="_blank">Заказы</a></li>
+					<li><a href="monitoring.html" target="_blank">Мониторинг</a></li>
+					<li><a href="view-monitoring.html" target="_blank">Просмотр мониторинга</a></li>
+					<li><a href="assistants.html" target="_blank">Сиделки </a></li>
+					<li><a href="view-assistant.html" target="_blank">Просмотр сиделки</a></li>
+				</ul>
+			</div>
+
+		</main>
+
+	</div>
+
+	<style>
+		.page {
+			margin-top: 50px;
+		}
+
+
+		.page h1 {
+			margin-bottom: 20px;
+			font-size: 40px;
+		}
+
+		.pages li {
+			font-size: 30px;
+			padding: 10px 0;
+		}
+
+		.pages li a {
+			color: var(--primary);
+		}
+
+		.pages li a:hover {
+			color: var(--primary-dark);
+			text-decoration: underline;
+		}
+
+		.pages ul {
+			margin-bottom: 20px;
+		}
+	</style>
+	<!-- Просмотр мониторинга - Настройка - Выбрать задание сиделке  -->
+	<div id="popup-task" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__body">
+					<div class="popup__head">
+						<h4 class="popup__title">
+							Задание сиделке
+						</h4>
+						<button data-close type="button" class="popup__close">
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M15.625 4.375L4.375 15.625" stroke="#27314A" stroke-linecap="round" stroke-linejoin="round" />
+								<path d="M15.625 15.625L4.375 4.375" stroke="#27314A" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</button>
+					</div>
+					<p class="popup__text">
+						Выберите задания для сиделки
+					</p>
+					<ul class="popup-task__list">
+						<li class="popup-task__item">
+							<div class="popup-task__body">
+								<div class="popup-task__icon-add-square">
+									<i class="icon__add-square"></i>
+								</div>
+								<div class="popup-task__wrap">
+									<h5 class="popup-task__title">
+										Создать собственное задание
+									</h5>
+									<p class="popup-task__text">
+										Можно заполнить в свободной форме
+									</p>
+								</div>
+							</div>
+
+							<button class="btn__primary-sm toggle-btn" type="button">
+								<span>Выбрать</span>
+							</button>
+						</li>
+						<li class="popup-task__item">
+							<div class="popup-task__body">
+								<div class="popup-task__icon-receipt">
+									<i class="icon__receipt"></i>
+								</div>
+								<div class="popup-task__wrap">
+									<h5 class="popup-task__title">
+										Контроль приема лекарств подопечным
+									</h5>
+									<p class="popup-task__text">
+										10 минут на задачу
+									</p>
+								</div>
+							</div>
+							<button class="btn__primary-sm toggle-btn" type="button">
+								<span>Выбрать</span>
+							</button>
+						</li>
+						<li class="popup-task__item">
+							<div class="popup-task__body">
+								<div class="popup-task__icon-receipt">
+									<i class="icon__receipt"></i>
+								</div>
+								<div class="popup-task__wrap">
+									<h5 class="popup-task__title">
+										Переодевание подопечного
+									</h5>
+									<p class="popup-task__text">
+										10 минут на задачу
+									</p>
+								</div>
+							</div>
+							<button class="btn__primary-sm toggle-btn" type="button">
+								<span>Выбрать</span>
+							</button>
+						</li>
+						<li class="popup-task__item">
+							<div class="popup-task__body">
+								<div class="popup-task__icon-receipt">
+									<i class="icon__receipt"></i>
+								</div>
+								<div class="popup-task__wrap">
+									<h5 class="popup-task__title">
+										Кормление подопечного
+									</h5>
+									<p class="popup-task__text">
+										10 минут на задачу
+									</p>
+								</div>
+							</div>
+							<button class="btn__primary-sm toggle-btn" type="button">
+								<span>Выбрать</span>
+							</button>
+						</li>
+						<li class="popup-task__item">
+							<div class="popup-task__body">
+								<div class="popup-task__icon-receipt">
+									<i class="icon__receipt"></i>
+								</div>
+								<div class="popup-task__wrap">
+									<h5 class="popup-task__title">
+										Купание подопечного
+									</h5>
+									<p class="popup-task__text">
+										10 минут на задачу
+									</p>
+								</div>
+							</div>
+							<button class="btn__primary-sm toggle-btn" type="button">
+								<span>Выбрать</span>
+							</button>
+						</li>
+						<li class="popup-task__item">
+							<div class="popup-task__body">
+								<div class="popup-task__icon-receipt">
+									<i class="icon__receipt"></i>
+								</div>
+								<div class="popup-task__wrap">
+									<h5 class="popup-task__title">
+										Простейшие медицинские процедуры
+									</h5>
+									<p class="popup-task__text">
+										10 минут на задачу
+									</p>
+								</div>
+							</div>
+							<button class="btn__primary-sm toggle-btn" type="button">
+								<span>Выбрать</span>
+							</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!--Выбор сиделки -->
+	<div id="popup-assistant" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__body">
+					<div class="popup__head">
+						<h4 class="popup__title">
+							Выбрать сиделку
+						</h4>
+						<button data-close type="button" class="popup__close">
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M15.625 4.375L4.375 15.625" stroke="#27314A" stroke-linecap="round" stroke-linejoin="round" />
+								<path d="M15.625 15.625L4.375 4.375" stroke="#27314A" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</button>
+					</div>
+					<p class="popup__text">
+						Выберите сиделку под замену на 14 марта
+					</p>
+					<div class="form__search">
+						<input autocomplete="off" type="text" placeholder="Поиск по сиделкам" class="form__search-input">
+						<i class="icon__magnifyingGlass"></i>
+					</div>
+					<ul class="popup-assistant__list">
+						<li class="popup-assistant__item">
+							<div class="popup-assistant__item-left">
+								<div class="profile">
+									<div class="profile__avatar">
+										<img src="img/assistant/1.png" alt="">
+									</div>
+									<div class="profile__profile-wrap">
+										<h5 class="profile__name">
+											Альфия Хабировна
+										</h5>
+										<div class="profile__details">
+											<span class="profile__rating">
+												Рейтинг 4.9
+											</span>
+											<span class="profile__reviews">
+												48 отзывов
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="popup-assistant__item-right">
+								<div class="popup-assistant__contacts">
+									<a href="tel:+79991561992" class="popup-assistant__phone">+7 999 156-19-92</a>
+									<span class="popup-assistant__text">
+										Открыта дата на 14 мар
+									</span>
+								</div>
+								<button class="btn__primary-sm toggle-btn" type="button">
+									<span>Выбрать</span>
+								</button>
+							</div>
+						</li>
+						<li class="popup-assistant__item">
+							<div class="popup-assistant__item-left">
+								<div class="profile">
+									<div class="profile__avatar">
+										<img src="img/assistant/5.png" alt="">
+									</div>
+									<div class="profile__profile-wrap">
+										<h5 class="profile__name">
+											Камила Равилевна
+										</h5>
+										<div class="profile__details">
+											<span class="profile__rating">
+												Рейтинг 4.7
+											</span>
+											<span class="profile__reviews">
+												12 отзывов
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="popup-assistant__item-right">
+								<div class="popup-assistant__contacts">
+									<a href="tel:+79275047252" class="popup-assistant__phone">+7 927 504-72-52</a>
+									<span class="popup-assistant__text">
+										Открыта дата на 14 мар
+									</span>
+								</div>
+								<button class="btn__primary-sm toggle-btn" type="button">
+									<span>Выбрать</span>
+								</button>
+							</div>
+						</li>
+						<li class="popup-assistant__item">
+							<div class="popup-assistant__item-left">
+								<div class="profile">
+									<div class="profile__avatar">
+										<img src="img/assistant/4.png" alt="">
+									</div>
+									<div class="profile__profile-wrap">
+										<h5 class="profile__name">
+											Ярослав Станиславов
+										</h5>
+										<div class="profile__details">
+											<span class="profile__rating">
+												Рейтинг 4.4
+											</span>
+											<span class="profile__reviews">
+												22 отзывов
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="popup-assistant__item-right">
+								<div class="popup-assistant__contacts">
+									<a href="tel:+79991561992" class="popup-assistant__phone">+7 999 156-19-92</a>
+									<span class="popup-assistant__text">
+										Открыта дата на 14 мар
+									</span>
+								</div>
+								<button class="btn__primary-sm toggle-btn" type="button">
+									<span>Выбрать</span>
+								</button>
+							</div>
+						</li>
+						<li class="popup-assistant__item">
+							<div class="popup-assistant__item-left">
+								<div class="profile">
+									<div class="profile__avatar">
+										<img src="img/assistant/6.png" alt="">
+									</div>
+									<div class="profile__profile-wrap">
+										<h5 class="profile__name">
+											Марат Хасанов
+										</h5>
+										<div class="profile__details">
+											<span class="profile__rating">
+												Рейтинг 4.9
+											</span>
+											<span class="profile__reviews">
+												34 отзывов
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="popup-assistant__item-right">
+								<div class="popup-assistant__contacts">
+									<a href="tel:+79275047252" class="popup-assistant__phone">+7 927 504-72-52</a>
+									<span class="popup-assistant__text">
+										Открыта дата на 14 мар
+									</span>
+								</div>
+								<button class="btn__primary-sm toggle-btn" type="button">
+									<span>Выбрать</span>
+								</button>
+							</div>
+						</li>
+						<li class="popup-assistant__item">
+							<div class="popup-assistant__item-left">
+								<div class="profile">
+									<div class="profile__avatar">
+										<img src="img/assistant/3.png" alt="">
+									</div>
+									<div class="profile__profile-wrap">
+										<h5 class="profile__name">
+											Зарина Бекполатовна
+										</h5>
+										<div class="profile__details">
+											<span class="profile__rating">
+												Рейтинг 4.6
+											</span>
+											<span class="profile__reviews">
+												15 отзывов
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="popup-assistant__item-right">
+								<div class="popup-assistant__contacts">
+									<a href="tel:+79991561992" class="popup-assistant__phone">+7 999 156-19-92</a>
+									<span class="popup-assistant__text">
+										Открыта дата на 14 мар
+									</span>
+								</div>
+								<button class="btn__primary-sm toggle-btn" type="button">
+									<span>Выбрать</span>
+								</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Заявка на замену -->
+	<div id="popup-replace" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__body">
+					<div class="popup__head">
+						<h4 class="popup__title">
+							Заявка на замену
+						</h4>
+						<button data-close type="button" class="popup__close">
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M15.625 4.375L4.375 15.625" stroke="#27314A" stroke-linecap="round" stroke-linejoin="round" />
+								<path d="M15.625 15.625L4.375 4.375" stroke="#27314A" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</button>
+					</div>
+
+					<div class="form__row-grid">
+						<div class="form__col-grid col-12 col-md-6">
+							<div class="form-control form-control__color">
+								<label class="form-control__label">Тип замены</label>
+								<input class="form-control__input" autocomplete="off" type="text" placeholder="" value="Замена на одну дату" />
+							</div>
+						</div>
+
+						<div class="form__col-grid col-12 col-md-6">
+							<div class="form-control form-control__color">
+								<label class="form-control__label">Дата замены</label>
+								<input class="form-control__input" autocomplete="off" type="text" placeholder="" value="14 апреля 2023" />
+							</div>
+						</div>
+
+						<div class="form__col-grid col-12">
+							<div class="form-control form-control__color">
+								<label class="form-control__label">Причина замены</label>
+								<input class="form-control__input" autocomplete="off" type="text" placeholder="" value="Сломалась машина, не успею попасть в город" />
+							</div>
+						</div>
+					</div>
+					<div class="form__photo-attach">
+						<p class="popup__text">
+							Фотографии в заявке
+						</p>
+						<ul class="form__photo-attach-list">
+							<li class="form__attach-photo">
+								<img src="img/photo/8.png" class="form__image-preview alt="">
+					</li>
+					<li class=" form__attach-photo">
+								<img src="img/photo/9.png" class="form__image-preview alt="">
+					</li>
+				    <li class=" form__attach-photo">
+								<img src="img/photo/10.png" class="form__image-preview alt="">
+					</li>
+					</ul>
+			</div>
+				<div class=" popup__bottom">
+								<button class="btn__primary-lg" type="button">Выбрать замену</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Просмотр заявка на замену -->
+	<div id="popup-view-replace" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__body">
+					<div class="popup__head">
+						<h4 class="popup__title">
+							Заявка на замену
+						</h4>
+						<button data-close type="button" class="popup__close">
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M15.625 4.375L4.375 15.625" stroke="#27314A" stroke-linecap="round" stroke-linejoin="round" />
+								<path d="M15.625 15.625L4.375 4.375" stroke="#27314A" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</button>
+					</div>
+
+					<div class="form__row-grid">
+						<div class="form__col-grid col-12 col-md-6">
+							<div class="form-control form-control__color">
+								<label class="form-control__label">Тип замены</label>
+								<input class="form-control__input" autocomplete="off" type="text" placeholder="" value="Замена на одну дату" />
+							</div>
+						</div>
+
+						<div class="form__col-grid col-12 col-md-6">
+							<div class="form-control form-control__color">
+								<label class="form-control__label">Дата замены</label>
+								<input class="form-control__input" autocomplete="off" type="text" placeholder="" value="14 апреля 2023" />
+							</div>
+						</div>
+
+						<div class="form__col-grid col-12">
+							<div class="form-control form-control__color">
+								<label class="form-control__label">Причина замены</label>
+								<input class="form-control__input" autocomplete="off" type="text" placeholder="" value="Сломалась машина, не успею попасть в город" />
+							</div>
+						</div>
+					</div>
+					<div class="form__photo-attach">
+						<h5 class="popup__text">
+							Фотографии в заявке
+						</h5>
+						<ul class="form__photo-attach-list">
+							<li class="form__attach-photo">
+								<img src="img/photo/8.png" class="form__image-preview alt="">
+					</li>
+					<li class=" form__attach-photo">
+								<img src="img/photo/9.png" class="form__image-preview alt="">
+					</li>
+				    <li class=" form__attach-photo">
+								<img src="img/photo/10.png" class="form__image-preview alt="">
+					</li>
+					</ul>
+				</div>
+				<div class=" popup-assistant__footer">
+								<h6 class="popup__text">
+									Подменная сиделка
+								</h6>
+								<div class="popup-assistant__item">
+									<div class="popup-assistant__item-left">
+										<div class="profile">
+											<div class="profile__avatar">
+												<img src="img/assistant/6.png" alt="">
+											</div>
+											<div class="profile__profile-wrap">
+												<h5 class="profile__name">
+													Марат Хасанов
+												</h5>
+												<div class="profile__details">
+													<span class="profile__rating">
+														Рейтинг 4.9
+													</span>
+													<span class="profile__reviews">
+														34 отзывов
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="popup-assistant__item-right">
+										<div class="popup-assistant__contacts">
+											<a href="tel:+79275047252" class="popup-assistant__phone">+7 927 504-72-52</a>
+											<span class="popup-assistant__text">
+												Открыта дата на 14 мар
+											</span>
+										</div>
+										<button class="btn__primary-sm toggle-btn" type="button">
+											<span>Заменить</span>
+										</button>
+									</div>
+								</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20230507101338"></script>
+</body>
+
+</html>
